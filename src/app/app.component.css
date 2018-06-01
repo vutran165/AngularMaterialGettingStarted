@@ -13,7 +13,7 @@ mat-toolbar-row {
     justify-content: space-between;
   }
 
-  .done {
+.done {
     position: fixed;
     bottom: 20px;
     right: 20px;

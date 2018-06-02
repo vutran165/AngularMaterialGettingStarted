@@ -21,7 +21,7 @@ import { MatMenuModule, MatButtonModule, MatToolbarModule, MatIconModule, MatCar
   exports : [
     MatMenuModule,
     MatButtonModule,
-    MatToolbarModule, 
+    MatToolbarModule,
     MatIconModule,
     MatCardModule
   ],

@@ -1,0 +1,14 @@
+<div class="main-content">
+   <mat-toolbar color="primary">
+    
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+   
+   </mat-toolbar>
+
+   <mat-menu x-position="before" #menu="matMenu">
+       <buton mat-menu-item>option 1</buton>
+       <buton mat-menu-item>option 2</buton>
+   </mat-menu>
+</div>

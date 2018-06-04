@@ -5,7 +5,8 @@ import { SidebarComponent } from '../layout/components/sidebar/sidebar.component
 
 import { LayoutRoutingModule } from './layout-routing.module';
 import { MainComponent } from './components/main/main.component';
-import { MatMenuModule, MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
+import { MatMenuModule, MatButtonModule, MatToolbarModule,
+  MatIconModule, MatCardModule, MatSidenavModule, MatButtonToggleModule } from '@angular/material';
 
 
 @NgModule({
@@ -14,17 +15,24 @@ import { MatMenuModule, MatButtonModule, MatToolbarModule, MatIconModule, MatCar
     LayoutRoutingModule,
     MatMenuModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
   ],
   exports : [
     MatMenuModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonToggleModule,
   ],
-  declarations: [LayoutComponent, SidebarComponent, MainComponent]
+  declarations: [LayoutComponent, SidebarComponent, MainComponent],
+  entryComponents: [SidebarComponent, MainComponent],
+  bootstrap: [SidebarComponent, MainComponent],
+  providers: []
 })
 export class LayoutModule { }

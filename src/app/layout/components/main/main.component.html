@@ -8,7 +8,10 @@
    </mat-toolbar>
 
    <mat-menu x-position="before" #menu="matMenu">
-       <buton mat-menu-item>option 1</buton>
-       <buton mat-menu-item>option 2</buton>
+       <button mat-menu-item>option 1</button>
+       <button mat-menu-item>option 2</button>
    </mat-menu>
+
+   <button mat-button type="button" (click)="drawer.toggle()">Toggle sidenav</button>
+
 </div>

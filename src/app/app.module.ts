@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
 
@@ -25,3 +26,6 @@ import { AppRoutingModule } from './app-routing.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// tslint:disable-next-line:semicolon
+// platformBrowserDynamic().bootstrapModule(AppModule)

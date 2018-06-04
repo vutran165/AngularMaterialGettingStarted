@@ -1,4 +1,21 @@
-<mat-drawer-container class="container" autosize>
-    <app-sidebar></app-sidebar>
+<!-- <mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class=""  mode="side">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    
     <app-main></app-main>
-</mat-drawer-container>
+
+</mat-drawer-container> -->
+
+<mat-sidenav-container class="container" autosize>
+        <mat-sidenav #sidenav mode="side" opened="true" class="sidenav">  
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="sidenav-content">
+            <app-main></app-main>
+        </mat-sidenav-content>
+        
+        
+</mat-sidenav-container>
+      

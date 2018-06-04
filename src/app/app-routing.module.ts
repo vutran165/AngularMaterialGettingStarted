@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule, Router} from '@angular/router';
 
 const routes: Routes = [
   { path : '', loadChildren: './layout/layout.module#LayoutModule'},
@@ -8,7 +8,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes),
+  ],
+  exports: [
+    RouterModule
   ],
   declarations: []
 })

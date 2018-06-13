@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import {MatTreeNestedDataSource, MatTreeFlattener, MatTreeFlatDataSource} from '@angular/material/tree';
-import { NestedTreeControl, FlatTreeControl } from '@angular/cdk/tree';
+import { MatTreeFlattener, MatTreeFlatDataSource} from '@angular/material/tree';
+import {  FlatTreeControl } from '@angular/cdk/tree';
 import { BehaviorSubject, of as observableOf, Observable } from 'rxjs';
 
 // FileNode...
@@ -56,10 +56,18 @@ const TREE_DATA = `
     }
   }`;
 
+  /**
+ * File database, it can build a tree structured Json object from string.
+ * Each node in Json object represents a file or a directory. For a file, it has filename and type.
+ * For a directory, it has filename and children (a list of files or directories).
+ * The input will be a json object string, and the output is a list of `FileNode` with nested
+ * structure.
+ */
+
   @Injectable()
-  export class FileDatabase {
+  export class FileDatabase  {
     dataChange: BehaviorSubject<FileNode[]> = new BehaviorSubject<FileNode[]>([]);
-    get data(): FileNode[] { return this.dataChange.value ;}
+    get data(): FileNode[] { return this.dataChange.value ; }
 
     constructor() {
       this.initialize();
@@ -78,7 +86,7 @@ const TREE_DATA = `
         for (let i in value) {
            let v = value[i];
            let node = new FileNode();
-           node.filename = '${i}';
+           node.filename = `${i}`;
            if (v === null || v === undefined) {
 
             } else if (typeof v === 'object') {
@@ -96,9 +104,10 @@ const TREE_DATA = `
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+  providers: [FileDatabase]
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent  {
 
    treeControl: FlatTreeControl<FileFlatNode>;
 
@@ -144,9 +153,7 @@ export class SidebarComponent implements OnInit {
   }
 
 
-  hasChild = (_: number, _nodeData: FileFlatNode);
-
-  ngOnInit() {
-  }
+  hasChild = (_: number, _nodeData: FileFlatNode) => {
+     return _nodeData.expandable; }
 
 }
